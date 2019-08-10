@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=" viewport-fit=cover,width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提示</title>
+    <style>
+        .appLogo {
+            position: absolute;
+            top: 32%;
+            left: 50%;
+            margin-left: -36px;
+            text-align: center;
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+        .prompt {
+            position: relative;
+            text-indent: 28%;
+            margin-top: 20%;
+            color: #fff;
+        }
+
+        .arrow {
+            position: absolute;
+            top: -50%;
+            right: 6%;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="appLogo">
+    <!-- app图标 -->
+    <img width="72px;" height="72px;" src="http://mengfujibei.gitee.io/autodownload/image/icon.png"
+         alt="logo">
+    <!-- app名称 -->
+    <div>企业商旅通</div>
+</div>
+
+<div class="cover" id="cover">
+    <div class="prompt">
+        <div class="arrow">
+            <!-- 右上角图片 -->
+            <img width="80px" height="auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAB2CAYAAAAA9ZvPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkZENThDOEMyRjVEQzExRTc4NkIxODY1ODk5MjM4QUE5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkZENThDOEMzRjVEQzExRTc4NkIxODY1ODk5MjM4QUE5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkQ1OEM4QzBGNURDMTFFNzg2QjE4NjU4OTkyMzhBQTkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RkQ1OEM4QzFGNURDMTFFNzg2QjE4NjU4OTkyMzhBQTkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5KOel0AAAJa0lEQVR42uxdCYxURRAtdldQFLnEAwGviAqIoiigghcqRkFBId6sRxQhGryiJmq8MSSKUcQEFe8oIiBqFhVkEeXwQgMo4oEiqIAnh3LvWi9dky1+ZnZndv4f5vevl7zQf5jff7arfnV3dXV1g+rqajIkAsOZs5mf6g9LrF0SgYuZjzCHBf+jgVkA73EKcyqzIXMDsx3zD7MAycDhzMkifGAXZrlZgGSgDXOu/KuxlHkws8osgL9oyqxII3zgQGYf6wL8Bcz9JDH/mTDMugA/0YD5ooz6a0OVdANLzQL4hQezEH7K8l9rFsA/YIp3PLMHsxezE7M0w3cxFWxnCuA3+st4APibWcZsov6/3LoAv3GAKr/CbM48mnm9XPcrszbyGnomsIi5jTlf+LhNA/3HEaq8MO20wcYAXvsD1sm/EHIz5tp00wGDn+hENWsA36cTvimA3zhKlefX5hAw+K8An5kCJA/HZmMBbBDoJ3aWASCm+fD7t2CuMQuQLPOf8vEsziR8U4BkmP95tX3RFMBPHKfKc00BkodeqvxxbV+0QaB/
+                        aM9cImWsAO4hA0GzAAl8++fUJnxTAD/RU5U/rOvLpgAJVwAbA/iFtsyfpfwfuQCQzWYBkvv2b7YuIFk4WZUrs7nBFMAvnK7KM7K5wcYA/qAjubi/1Py/FbkYQLMACUEfVZ6ejfBNAfw1/+9me5N1AX6gMfMvZiO5xq7gX8wCJGv0nxL+wmyFbwrgD85Q5bdzudEUIP7AlvC+6nqKKUCy0JW5v5RXUiANnCmA/zhPld+iOpZ/TQH8VoAJOfcfNg2MNY5kfiHl1czWlKUDyCyAf2//xFyFbwoQf5yvyuPrNYWwLsAL8/8ruWCQKrMAycElgcFflVmA5ACZv5Yz95FrbASZW5+KzALEE2co4X9DdWz/MgXwD1eq8tPkUsDUC9YFxA97ifnfiVzQ576k8v+bBfAf5SJ8YHI+wjcFiB8gryHq+qkwKjTEB2dTzcofDn6YYQqQLAxV5SfzGfzZIDB+QNZPeP4QALKenOfvH7MAycGNInzg2TCEbxYgPtiP+S25zJ9w+R5CLvsnmQVIBm6nmrSvE8MSvlmA+L39APL9zw9zXmmIz9tfEabwzQLE6+2HoLozPwnzAWYBiht3qrf/7bCFbxaguNGFXJbvEhn543pB2A8xC1C8eFTJ5/kohG8WoHgxkPmalJHs6VByS8Chw/dTw3YjlzipG7kTtHCMGiJpkD0rtZsWbwC8athevUIGXTC9s8hF2xQaSPU+Ul3fH5XwfbUAMJunMq8ht2myYR51IdU6llzHMv8t0O+/j3mHlKGAiP7dZAqQHQYx7yXnKg0T2HWDlbiJEf/+TjLPTwV89Ga+H+UDfVEAJER+jnlWhrf4Q5lCLRRziiRKG9V3cKQakiphha0zubN3kXNn90BdD6i3M4rueDbV5Pp/lXlh5C0HBYg5D2Yurd4e65gjmYfnUW8j5uXMZYG6b47o77hLPeNPZutCtF/chd+GuTwgoLHMvUJ8RhPmRFX/JmaHkP+O7szN6hmDCtWGcRZ+GXOearR/mQMjfNZs9ayXQqy7GfNHVfcLhWzHOCvADarR8Pb0i/h5XdXz1jN3DqFOjMHeUPX+JApRsHaMqycQc/jb1DUGZm9G/Ez4BlLr8LvS9idz5+PrP0fKW5mXUUiRPr67gpEUcU8pL2OOKtBzl6jyvnnWha3dd6vrm8T5RKYAdUNnxRrH3FKg525V5dI86ukm/v1UjB+msI/tKK9ZHKHN77wCPretKv+Zx2+fSi67J4l/YsiOdJvGEc1VeXmBntlUKR68Z4vq6el7T/1+jCkGROnq9VUB1qty4wI98yzlov2Kct+Th+NcZzL3luvfmWdSDmldTQFqsCLwVhUC16ny6zne20N8+i1V99GbQozuTZoCfKTKAwrwvKvJxeORDDhz2ZR5vgi/mRI+ZjELiqIlY+oE2p+5TZwnW5iHRfisE8T9m8LoLO8rZd7PrFL3rmB2LKa2jLMncJJq2DnMhhGtNaxSz/mM2TjL+2YE1igWMtsWWzvGfRVwY8A/Xxpi/U2ZC1T9q0Wwdd03WFbzNMYzdyvGdoz7auCQQENPYe4eQr2wJu8HVgB71nFPF2Zl4Pege7pJfP5kChANRwUa/Qfm2XnUVypvbArowy+uwxK9oMYkKXzF7Fbs7eeDAoAPBAZb1bJ8O4BZkqPwxwXquS3DKl4fZkUaweOtHyEBJWQKUDj2T9P3Vsta+0gJuijJUfhjAkKHmb+X+W11elREECwSKX0LCkVs4D3Mqyh9NDBO1EB8IE7V+FocMcizi9j7Z5iD1XcRnzdaHE
+                        0gsnG2SjeTZr7DHEFZnNZdbPB1Y0g78dxdwWwR0TPWMF8iFzK+IK4N5fvOIASO4Ei1c5n9qCa9an3xG3Maufx8OJxxQ9wbKElbw+D27iAu3c6iGOnWERCRs1aIYBMEgXxJLiJosW+NktS9gaeRO2ChuerHb2E+nLSGSNruYETgIPRqqhI+NohcmkThA2UJ+luxFIv0an0DfTpWE+dRQpEUBegpI/Z26rNPRfgrKMHwvQvALOAhZmVA+KNFKRItfN8tADZZImK4o/oMI3s4iSaQwVsLgMibJ8idoaOF/wG5vfYmfE8VACP8S2SuPlT9bRtl5H8K80cTuZ9dAPpzpFXpHvh8JrmY+yUmaj8tAEz8JHJbqrTwEbJdLm+9Cd9DBWjPfJncIkx/9Tm2bo1hHkZu65WlQPOsC8DmilvJHZoc3Jv3jvT1X5tY/VIAWCnsoBlObjNFEHPIbQ+vNHH6pQBYx0eAxjDmQRkEj6RNFSZGfxSgRAZuGMBhR02jNN/B5soHZV5v8EQB4KC5iHkBbb8Fm9RcHr78xynG0TemADUolbk7VubOyWDiAcTsYR/eOMrzhEzDjlcArL+fKkLHVuuWGb6HlKxviNArbSoXXwVAls0TyYVenUTu3LtMfgfsuMUO2lfIOXbWm2jipQCoB/F1XZnHCDtT7Xl0EIo9nVyA5RRy6VsNRa4AWHDBOTZwwSLA8lARPFKn7JLF/ejTp8nUDW/8BhNBcSgA8t80ln4ZmyuQgq2VlNuI0FNslEP9iKqdJVM2HHRsq3FFqABhDbIQbIGzbT8nF2MHR80v1sT+jQEwQPuOXKIkEL53ZMz6idzhRoYYKsAaEd7fQhyfsorcQQl4i38Vcw4TvtKazR/8L8AABwa24NFTJbIAAAAASUVORK5CYII="
+                 alt="">
+        </div>
+        <p>1、点击右上角的
+            <!-- 目录图片 -->
+            <img width="30px" height="30px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAADjVADoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkRFMjkwQUQ5RjVEQzExRTc4MDhFOTA3QUVFRjY1RTcwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkRFMjkwQURBRjVEQzExRTc4MDhFOTA3QUVFRjY1RTcwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6REUyOTBBRDdGNURDMTFFNzgwOEU5MDdBRUVGNjVFNzAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REUyOTBBRDhGNURDMTFFNzgwOEU5MDdBRUVGNjVFNzAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6d6LJUAAACBElEQVR42uycTUsCURSGj8qYEA3SqjIIpKWLpA+I/oRB9QNyW4siahMYbixbVIv+ggWi2T7aiK2KPlBXLgu3Qm000s5xrmI260zve+CB4XJhOA/Occ7AuQ6fb4psws2EFIvMhFrrx/hgXplH5oq5Zmrdmxw2IpaZODNNgxklZo9Jdy46O65dzJHaMKgSSOWWUrm62smbprd1fcjskj6xxHiYm04RK8wZ6Rcio8AUnaoInpC+cSoORMQqM6mxCB+z5lR/kbpHSETMwwPNiYgxeKBxETEED1axRHS9WUIEAiIgAiL+mwjDMCgajVA+/0SFwnPzWtZ6FdJ9HvTixpHIPoXD6+TxeJoEg0Fyuw3KZnM9ESFfqBq9uLH8Erxe74+1SqVCgcAMaoSWNSKVSv9aSyQu9asRudwdmeYI+f1+qlarLOGCYrE41et1vWoEHg2IgAiIgAiIgAg0XWi60HShRqDpQtOFRwMiIAIiEBABEWi60HSh6UKNQNOFpgtNF2oEREAEREAERPy9iHdooJqIKMMDlUXECzzQvYjIwANlRESSrNlpXeNNHIgIGRjf1ljEFlNtTQIXmWGyJmN1imNSE9Cds+G3zCizoImEc2aHaXS/UH0xm2TNiZcGWIDkJtPPGyrn9vcIu81utVnOkpgla2zY6NPEP1VBfCDrII0k2Ryk8S3AAOWyq52jtaaiAAAAAElFTkSuQmCC"
+                 alt="">
+        </p>
+        <p>2、选择在浏览器
+            <!-- 浏览器图片 -->
+            <img height="30px" width="30px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAADjVADoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY2MkUxMEM4RjVEQzExRTdCNzk1RkE5N0NDNzdERUE3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY2MkUxMEM5RjVEQzExRTdCNzk1RkE5N0NDNzdERUE3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjYyRTEwQzZGNURDMTFFN0I3OTVGQTk3Q0M3N0RFQTciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjYyRTEwQzdGNURDMTFFN0I3OTVGQTk3Q0M3N0RFQTciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6Cgj5xAAAGmElEQVR42uxca0wUVxg9ICuNyiPio4IsoKgoam2AKlK1oMSoSV0UF2tsrFYEUWuBWqux0Tba9CHiAxTYlpimqTzEAjXaVFisUvoDFdKIAqKItPJDqZGHCKj0fnd3KGuXfRDQgZ2TfJnJ7L1zds7Ovd/jzqyVi4sb9GAwM4XW/Jk5a4/1RzQx+4tZCbOfmOUwa3u+kZUeIUKYfc3MEwMTVcy2MzvV9aB1l/1BzL7SNhioIkB7bVnaax3UefH29o7C/pfMPoblIIDZK8zyugoRyuwQLA8kRhmza9baSTAelouDpAEJsYLZWAsWwoWZ0lrrIi0dChLCT9IBviTEq5IOGENC2Eo6aCZLCc9FlpIQEiQhJCEkIbqBzYskGzp0KIKCAhEQMBve3lPg6uoKe3s7/llDQyNqa2tRVnYNRUVFyM8vQHNz8wv7blSY6ehrErlcjk2bIqFQLOVimAISITf3Zxw5chR37tzp30LY2toiNjYa4eHvQyaT9egc7e3tUKm+Q1xcPFpbW/ufEHQXqFRJfAiYg5aWFhw7lsyGSBkiIyPg5+fLj9OQCQ+P7LO7o0+EmDRpEtLSfsDIkSPN6vfgwQMsX65EZeWNzmNhYSuwZ89u2NkNw71797By5WpUVFSI32u4u7sjPf1Hs0UgpKYe1xGBkJ6eiYULF6Oq6iY/Z0bGCc4haiFoTkhKSsSIEU496n///n
+                29x2k4hIYqceNGFZychiM5+SjnEq0QMTEfYupUb+YKG9jQyDDavqjoD53b3M7OzoBI9Vi7dj0/N807xCVKIdzc3BAREc73d+78FJmZJw22T0g4CqXyHQQHL8Lx49/zY21tbQb73L59G7t3f8b3iYs4RScExQk2NjYoLr6E7OwcWFlZGWx/4kQ63z579oxf3IEDB3HhQqFRnpMnT+HKlRLOFRUVIS4hKEiiYIlw6NCRzmOGIJP9F9Q+ffqUC1FZWWmUq6Ojg8cUhJAQhckB2gsRYv78QAwZMgR1dXXsV73Ijz1+/NhgH6VyRY/5Ll4s5FzESdyiEYJyB8K5c/n8VieUlJTi/PnfuhVkzZp3WZ5h3yM+4iCurtyiEGLKFE30SGNXwKNHj7B69Rp4enph7Fh3TJv2OpsX0nSGk1IZ2mNOgWvy5MniEcLNTc631dXVBqPGbds+wd69X/A5gRAcvEDHdZJLzMrKYB4njXsFQxOuwOXu3jueo1fScMH/P3z40GjbpKQUXL1ahvj4/WhsbOzMSygkp60Af/9ZLJCqxdmzv+g9j8BlKPZ4afUIYy5TQGHh75g5M4C3JzeYmpqiI4KAGTNe61YI8h6iC6iEX9acyY8mPBoiy5Yp4OXlpbeNi4tzt/0dHR11uEUhRE2NJjUeN87D7L5z587p9rMlSxazQG0jJk6c+L/cwsPDQ4dbFEJcv36db318fMzuK/yy+oMuGXbs2A61+lfcvFmBgoI8zJo1k3/m6+ujwy0KIWjME6geaW1t3ikFD2IKJkzwZBHofs4RHDxfh1sUQqjVBTxucHYegzlz3jSrr5OTeSm7XO6Kdevew+jRozkncYtGiKamZp5oEaKjt5rsPWgynD59mtl8sbExfJuTk8u5RZV9JiYm4cmTJ3zsLl36tkl9Nm6MNHsoaWKHYZwrIeGY+NLwmpoapKSo+P6+fZ+bVE6jCnVPQVzE2Vugp+r29NbJiosvs2wwiC/czJs3F6dPn2bjuMXgJFtfXw8/Pz/mHk1/sJcq2lu3xvC7QpSlOso0IyKi2MX9g/Hjx7GcId1gFYk8BlWnNm/+wGQOOjdxGEvzX6oQQjktLGwVL72TuztzJpdFjyEmZZLGoCnnr+IcvY0+WQQuLy9nE+Zyfgs7ODjg8OF45lWyEBj4lt7J0ZRFIDqXQhHKAqjyvvjKfb/kR6n1hg3rO5f87t6tQ36+GqWlpbh1q5rPJ7t27cCoUaO6nVBVqm8RF3ewfy756QZBcmzZEsXdKpXXTAEt/VFsQi6yN73DSxWia1VqwYIgzJ7tz4aDN78bHBzstfWFBu1jAWV8vSMvTz3wHgvoD5CemJGEkISQhJCEkIQwT4hGSQa0kRB1kg6oIyH+lHTAJRIiW9IB2SREJjTvTlsq/iYNSAh6cCnGgoWIZtYqvAl8jZJDaN6MtSR8A+0b0F3fDVczG87sDQsRIZHZR8w6ng+oaO1tCzTviVcNYAHo2ugBrs3aa+6sR+hrPFjbmKqutNpKrw3L+umFt2snxMvQ/JFGJvT8kca/AgwAl+xNVI+vj5sAAAAASUVORK5CYII="> 中打开
+        </p>
+        <p>即可正常下载</p>
+    </div>
+</div>
+<script>
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+    /**
+     * 初始化加载程序
+     */
+    window.onload = function () {
+
+        if (isMobile()) {
+            checkIsAppleDevice();
+        }
+    }
+
+    // 判断是不是移动端
+    function isMobile() {
+        var flag = false;
+        var userAgentInfo = navigator.userAgent;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    function checkIsAppleDevice() {
+        // 判断浏览器所在机器操作系统版本
+        var u = navigator.userAgent,
+            version = '';
+        var ios = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        var iPad = u.indexOf('iPad') > -1;
+        var iPhone = u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1;
+        if (ios || iPad || iPhone) {
+            // App 在 App Store 的地址
+            // 可在App Store中分享给微信好友 然后用电脑版微信打开链接后复制链接粘贴即可
+            window.location.href =
+                "https://itunes.apple.com/cn/app/com.eBusinessTravel.F%20/id1297110111?mt=8"
+        } else if (u.indexOf('Android') > -1 ||
+            //android
+            u.indexOf('Linux') > -1) {
+            if (isWechat()) {
+                document.getElementById("cover").style.display = "block";
+            } else {
+                // apk 地址
+                window.location.href = "http://qy.yeetm.com/APPapk/tmc_zhyg.encrypted_signed_Aligned.apk";
+            }
+        }
+    }
+    // 判断是不是微信浏览器
+
+    function isWechat() {
+        var isWechat = false;
+        var ua = navigator.userAgent.toLowerCase();
+
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            isWechat = true;
+            return isWechat;
+        }
+    }
+</script>
+</body>
+
+</html>
